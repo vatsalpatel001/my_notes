@@ -1,0 +1,41 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    padding: 0px;
+}
+
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.question-container {
+    margin-bottom: 4px;
+    padding: 5px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    display: none;
+}
+
+.question {
+    font-weight: bold;
+    color: #007bff;
+}
+
+.answer {
+    margin-top: 5px;
+}
+
+#searchInput {
+    margin-top: 20px;
+    padding: 10px;
+    font-size: 16px;
+}
+pre{
+    color:#e83e8c
+}

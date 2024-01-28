@@ -1,0 +1,626 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/themes/prism.min.css">
+    <title>Python FAQ</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+    <div class="container-fluid">
+        <div class="form-group">
+            <input type="text" id="searchInput" class="form-control" placeholder="Search...">
+        </div>
+
+        <div class="question-container">
+            <div class="question">What is a dynamically typed language?</div>
+            <div class="answer">A dynamically typed language, like Python, JavaScript, checks data types during program
+                execution. <b>Type-checking happens on the fly as the code runs.</b></div>
+        </div>
+
+        <div class="question-container">
+            <div class="question">Strongly-typed language vs. Weakly-typed language</div>
+            <div class="answer">
+                <ul>
+                    <li>Strongly-typed language: "1" + 2 -> error</li>
+                    <li>Weakly-typed language: "1" + 2 -> 12</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="question-container">
+            <div class="question">What is an Interpreted language?</div>
+            <div class="answer">An Interpreted language executes its statements line by line. Languages such as Python,
+                JavaScript are prime examples of Interpreted languages. <b>Programs written in an interpreted language
+                    run directly from the source code, with no intermediary compilation step.</b></div>
+        </div>
+
+        <div class="question-container">
+            <div class="question">What is PEP 8?</div>
+            <div class="answer">PEP stands for Python Enhancement Proposal. A PEP is an official design document
+                providing information to the Python community. PEP 8 is especially important since it documents the
+                <b>style guidelines for Python Code.</b>
+            </div>
+        </div>
+
+        <div class="question-container">
+            <div class="question">What is Scope in Python?</div>
+            <div class="answer">
+                <p><b>"Scope" refers to the region in a program where a particular variable is accessible.</b> There are
+                    three main types of scopes:</p>
+                <ul>
+                    <li>A local scope refers to the <b>local objects available in the current function.</b></li>
+                    <li>A global scope refers to the objects available throughout the code execution since their
+                        inception.</li>
+                    <li>A module-level scope refers to the global objects of the current module accessible in the
+                        program.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="question-container">
+            <div class="question">What are lists and tuples?</div>
+            <div class="answer">
+                <ul>
+                    <li>Both are ordered</li>
+
+                    <li>Lists are represented with square brackets [], <br>while tuples are represented with round
+                        brackets
+                        ().</li>
+                    <li><b>Lists are mutable, tuples are immutable objects. </b>This means that lists can be modified
+                        but tuples remain constant and cannot be modified in any manner.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="question-container">
+            <div class="question">What is pass in Python?</div>
+            <div class="answer">The pass keyword represents a <b>null operation in Python. </b>It is generally used for
+                the purpose of filling up empty blocks of code which may execute during runtime but has yet to be
+                written.</div>
+        </div>
+
+        <div class="question-container">
+            <div class="question">What are global, protected, and private attributes in Python?</div>
+            <div class="answer">
+                <ul>
+                    <li>Global variables are public variables defined in the global scope. To use the variable in the
+                        global scope inside a function, we use the global keyword.</li>
+                    <li>Protected attributes are defined with an underscore prefixed to their identifier (e.g., _sara).
+                        They can still be accessed and modified from outside the class they are defined in, but a
+                        responsible developer should refrain from doing so.</li>
+                    <li>Private attributes are attributes with a double underscore prefixed to their identifier (e.g.,
+                        __ansh). They cannot be accessed or modified from the outside directly and will result in an
+                        AttributeError if such an attempt is made.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="question-container">
+            <div class="question">What is the use of self in Python?</div>
+            <div class="answer"><b>Self is used to represent the instance of the class.</b> With this keyword, you can
+                access the attributes and methods of the class in Python.</div>
+        </div>
+
+        <div class="question-container">
+            <div class="question">What is __init__?</div>
+            <div class="answer">__init__ is a <b>constructor method </b>in Python and is <b>automatically called to
+                    allocate memory when a new object/instance is created.</b> All classes have a __init__ method
+                associated with them.
+            </div>
+        </div>
+
+        <div class="question-container">
+            <div class="question">What is break, continue, and pass in Python?</div>
+            <div class="answer">
+                <ul>
+                    <li>Break: The break statement <b>terminates the loop immediately</b>, and the control flows to the
+                        statement after the body of the loop.</li>
+                    <li>Continue: The continue statement <b>terminates the current iteration</b> of the statement, skips
+                        the
+                        rest of the code in the current iteration, and the control flows to the next iteration of the
+                        loop.</li>
+                    <li>Pass: The pass keyword in Python is generally used to fill up empty blocks and is similar to an
+                        empty statement represented by a semi-colon in languages such as Java, C++, Javascript, etc.
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="question-container">
+            <div class="question">What is docstring in Python?</div>
+            <div class="answer">Documentation string or docstring is a multiline string used to document a specific code
+                segment. The docstring should describe what the function or method does.</div>
+        </div>
+
+        <div class="question-container">
+            <div class="question">What is lambda in Python? Why is it used?</div>
+            <div class="answer">Lambda is an <b>anonymous function in Python</b> that can <b>accept any number of
+                    arguments
+                    but can only have a single expression.</b> It is generally used in situations requiring an anonymous
+                function for a short time period. Lambda functions can be used in either of the two ways:</div>
+            <div class="code-example">
+                <details>
+                    <summary>code</summary>
+                <pre>
+                    <code class="language-python" >
+    # Example 1: Lambda function as an anonymous function
+    add = lambda x, y: x + y
+    result = add(3, 5)
+    print("Result:", result)  # Output: 8
+    
+    # Example 2: Using lambda with built-in functions like map
+    numbers = [1, 2, 3, 4, 5]
+    squared = list(map(lambda x: x ** 2, numbers))
+    print("Squared:", squared)  # Output: [1, 4, 9, 16, 25]
+                    </code>
+                </pre></details>
+            </div>
+        </div>
+        <div class="question-container">
+            <div class="question">How do you copy an object in Python?</div>
+            <div class="answer">
+                <p>In Python, the assignment statement (= operator) does not copy objects. Instead, it creates a binding
+                    between the existing object and the target variable name. To create copies of an object in Python,
+                    we need to use the copy module. Moreover, there are two ways of creating copies for the given object
+                    using the copy module -</p>
+
+                <p><strong>Shallow Copy:</strong> A shallow copy creates an exact duplicate of the values in the original object. If a nested object is present, only the reference addresses are copied.</p>
+
+                <p><strong>Deep Copy:</strong> A deep copy recursively copies all values from the source to the target object, including nested objects.</p>
+                    <details>
+                        <summary>code</summary>
+                        <pre><code class="language-python" >
+
+original_list = [1, 2, 3]
+copied_list = original_list
+original_list[0] = 99
+print("Original List:", original_list) #[99, 2, 3]
+print("Copied List:", copied_list) #[99, 2, 3]               
+
+from copy import copy, deepcopy
+list_1 = [1, 2, [3, 5], 4]
+## shallow copy
+list_2 = copy(list_1) 
+list_2[3] = 7
+list_2[2].append(6)
+list_2    # output => [1, 2, [3, 5, 6], 7]
+list_1    # output => [1, 2, [3, 5, 6], 4]
+## deep copy
+list_3 = deepcopy(list_1)
+list_3[3] = 8
+list_3[2].append(7)
+list_3    # output => [1, 2, [3, 5, 6, 7], 8]
+list_1    # output => [1, 2, [3, 5, 6], 4]
+                </code></pre></details>
+            </div>
+        </div>
+        <div class="question-container">
+            <div class="question">What is pickling and unpickling?</div>
+            <div class="answer">
+                <p>In Python, the pickle module is used for pickling and unpickling objects.</p>
+
+                <p><strong>Pickling:</strong> Pickling is the serialization process in Python. Any object in Python can
+                    be serialized into a byte stream and dumped as a file in the memory. The function used for the above
+                    process is pickle.dump().</p>
+
+                <p><strong>Unpickling:</strong> Unpickling is the complete inverse of pickling. It deserializes the byte
+                    stream to recreate the objects stored in the file and loads the object to memory. The function used
+                    for the above process is pickle.load().</p>
+
+                    <details>
+                        <summary>code</summary>
+                        <pre><code class="language-python" >
+
+import pickle
+
+# Object to be pickled
+data = {'name': 'John', 'age': 30, 'city': 'New York'}
+
+# Pickling (serialization)
+with open('data.pkl', 'wb') as file:
+    pickle.dump(data, file)
+
+# Unpickling (deserialization)
+with open('data.pkl', 'rb') as file:
+    loaded_data = pickle.load(file)
+
+print(loaded_data)
+                </code></pre></details>
+            </div>
+        </div>
+
+
+        <div class="question-container">
+            <div class="question">What is a generator?</div>
+            <div class="answer">
+                <p>Python Generator functions <b>allow you to declare a function that behaves like an iterator. It
+                        produces values using the yield keyword instead of return.</b> When a generator function is
+                    called, it returns a generator iterator but does not start execution immediately.</p>
+                <p>Each time the yield statement is encountered in the function, the function's state is saved, and the
+                    yielded value is returned to the caller. The next time the generator's __next__() method is called,
+                    the function resumes execution from where it was paused, using the saved state.</p>
+                <p>Here is an example of a generator function that processes a large file one line at a time:</p>
+                <details>
+                    <summary>code</summary>
+                    <pre><code class="language-python" >
+
+import psutil
+
+def process_large_file_each_iteration(file_path):
+    with open(file_path, 'r') as file:
+        for line in file:
+            # Process each line one at a time
+            yield line
+
+# Example usage for the corrected case
+file_path = 'large_log_file.txt'
+
+# Measure memory usage for opening and closing the file in each iteration:
+print("Memory usage for opening and closing the file in each iteration:")
+log_processor_each_iteration = process_large_file_each_iteration(file_path)
+for log_entry in log_processor_each_iteration:
+    # print(log_entry)
+    print(f"Memory Usage: {psutil.Process().memory_info().rss / 1024 / 1024:.2f} MB")
+                </code></pre></details>
+            </div>
+        </div>
+
+        <div class="question-container">
+            <div class="question">What is the difference between .py and .pyc files?</div>
+            <div class="answer">
+                <p><strong>.py files:</strong> .py files contain the source code of a program. These files hold the
+                    human-readable Python code that you write for your program.</p>
+
+                <p><strong>.pyc files:</strong> .pyc files contain the bytecode of your program. Bytecode is a
+                    lower-level, platform-independent representation of your code that is generated by the Python
+                    interpreter after compiling the .py file. .pyc files are not created for all the files that you run;
+                    they are only generated for the files that you import.</p>
+
+                <p>Before executing a Python program, the Python interpreter checks for the presence of compiled files.
+                    If the .pyc file is found, the virtual machine executes it directly. If not found, it checks for the
+                    .py file. If a .py file is found, it compiles it into a .pyc file, and then the Python virtual
+                    machine executes it. Having .pyc files can save compilation time.</p>
+            </div>
+        </div>
+        <div class="question-container">
+            <div class="question">How are arguments passed by value or by reference in Python?</div>
+            <div class="answer">
+                <p><strong>Pass by value:</strong> Copy of the actual object is passed. Changing the value of the copy
+                    of the object will not change the value of the original object.</p>
+
+                <p><strong>Pass by reference:</strong> Reference to the actual object is passed. Changing the value of
+                    the new object will change the value of the original object. <br><br><b>In Python, arguments are
+                        passed by reference, i.e., reference to the actual object is passed.</b></p>
+                <details>
+                    <summary>code</summary>
+                    <pre>
+                    <code class="language-python" >
+def appendNumber(arr):
+    arr.append(4)
+arr = [1, 2, 3]
+print(arr)  # Output: [1, 2, 3]
+appendNumber(arr)
+print(arr)  # Output: [1, 2, 3, 4]
+                </code></pre>
+                </details>
+            </div>
+        </div>
+
+        <div class="question-container">
+            <div class="question">What are decorators in Python?</div>
+            <div class="answer">
+                <p>Decorators are functions that add functionality to an existing function without changing the
+                    structure of the function itself. They are represented by the <code class="language-python" >@decorator_name</code> syntax in
+                    Python and are called in a bottom-up fashion.</p>
+            </div>
+            <details>
+                <summary>code</summary>
+            <pre><code class="language-python" >
+# Decorator function to reverse names
+def reverse_names_decorator(function):
+   def wrapper(arg1, arg2):
+       arg1 = arg1[::-1]
+       arg2 = arg2[::-1]
+       string_hello = function(arg1, arg2)
+       return string_hello
+   return wrapper
+
+@reverse_names_decorator
+def say_hello(name1, name2):
+   return 'Hello ' + name1 + '! Hello ' + name2 + '!'
+
+print(say_hello('Sara', 'Ansh')) #Hello araS! Hello hsnA!
+            </code></pre></details>
+        </div>
+
+        <div class="question-container">
+            <div class="question">What are list comprehensions in Python?</div>
+            <div class="answer">
+                <p>List comprehensions in Python offer a shorter syntax when you want to create a new list based on the
+                    values of an existing list. They provide a concise way to create lists using a single line of code.
+                </p>
+                <p>The structure of a list comprehension in Python consists of the following elements:</p>
+                <ul>
+                    <li><strong>Expression:</strong> The expression that defines the elements of the new list.</li>
+                    <li><strong>For Clause:</strong> The <code class="language-python" >for</code> clause specifies the iteration over an
+                        existing iterable (e.g., a list, tuple, or string).</li>
+                    <li><strong>Optional Condition:</strong> An optional <code class="language-python" >if</code> statement that filters elements
+                        based on a condition.</li>
+                </ul>
+                <pre>
+                <code class="language-python" >
+# Structure of a list comprehension
+new_list = [expression for item in iterable if condition]
+
+# Example of list comprehension
+original_list = [1, 2, 3, 4, 5]
+squared_list = [x**2 for x in original_list]
+print(squared_list)  # Output: [1, 4, 9, 16, 25]
+                </code></pre>
+                <p>In the example, <code class="language-python" >x**2</code> is the expression, <code class="language-python" >for x in original_list</code> is the for
+                    clause, and there is no condition in this case. The structure allows concise creation of lists based
+                    on existing iterables.</p>
+
+            </div>
+        </div>
+
+        <div class="question-container">
+            <div class="question">What are *args and **kwargs in Python function definitions?</div>
+            <div class="answer">
+                <p>"*args" and "**kwargs" are special syntax used in function definitions to handle multiple variables within a single set of arguments.</p>
+                <p><strong>*args:</strong></p>
+                <p>"*args" is used to pass a list of variables as <b>non-keyword arguments</b> to a function, while "**kwargs" is used to pass a variables as <b>keyword arguments</b>.</p>
+                <ul>
+                  
+                    <li>The asterisk (*) before the parameter name (args).</li>
+                    <li>Inside the function, the arguments passed using *args are treated as a <b>tuple</b>, which can be
+                        accessed and iterated over.</li>
+                    <li>It is conventionally named args, but you can choose any name you like.</li>
+                </ul>
+                <pre>
+                <code class="language-python" >
+def my_function(*args):
+    for arg in args:
+        print(arg)
+
+my_function(1, 2, 3)  # Output: 1 2 3
+my_function('a', 'b', 'c')  # Output: a b c
+                </code></pre>
+
+                <p><strong>**kwargs:</strong></p>
+                <ul>
+                   
+                    <li>The double asterisks (**) before the parameter name (kwargs) .</li>
+                    <li>Inside the function, the keyword arguments passed using **kwargs are treated as a <b>dictionary</b>,
+                        which can be accessed and manipulated.</li>
+                    <li>It is conventionally named kwargs, but you can choose any name you like.</li>
+                </ul>
+                <pre>
+                <code class="language-python" >
+def my_function(**kwargs):
+    for key, value in kwargs.items():
+        print(key, value)
+
+my_function(name='John', age=25)  # Output: name John, age 25
+my_function(city='New York', country='USA')  # Output: city New York, country USA
+                </code></pre>
+
+                <p><strong>Note:</strong> You can use both *args and **kwargs in the same function definition, but the
+                    order should be *args followed by **kwargs. This allows the function to accept both non-keyworded
+                    and keyworded arguments simultaneously.</p>
+            </div>
+        </div>
+        <div class="question-container">
+            <div class="question">What are negative indexes and why are they used?</div>
+            <div class="answer">
+                <p>Negative indexes in Python are used to <b>access elements from the end of a list, tuple, or string.</b></p>
+                <ul>
+                    <li>Negative indexes count from the last element as -1, the second-to-last as -2, and so on.</li>
+                    <li><code class="language-python" >Arr[-1]</code> means the last element of the array <code class="language-python" >Arr[]</code>.</li>
+                </ul>
+                <pre>
+                <code class="language-python" >
+arr = [1, 2, 3, 4, 5, 6]
+# Get the last element
+print(arr[-1])  # Output: 6
+# Get the second-to-last element
+print(arr[-2])  # Output: 5
+                </code>
+            </pre>
+                <p>Negative indexes provide a convenient way to access elements from the end of a sequence without
+                    explicitly knowing the length of the sequence.</p>
+            </div>
+        </div>
+        <div class="question-container">
+            <div class="question">What is the enumerate function in Python?</div>
+            <div class="answer">
+                <p>In Python, the <code class="language-python" >enumerate</code> function is a built-in function used to iterate over an
+                    iterable (such as a list, tuple, or string) along with an index. This is particularly useful when
+                    you need to keep track of the position of the current item in the iterable. The
+                    <code class="language-python" >enumerate</code> function returns an iterator that produces pairs of the form (index,
+                    element).
+                </p>
+                <pre>
+                <code class="language-python" >
+my_list = ["apple", "banana", "cherry"]
+
+for index, fruit in enumerate(my_list):
+    print(f"Index {index}: {fruit}")
+                </code>
+            </pre>
+                <p>The above code snippet demonstrates the usage of <code class="language-python" >enumerate</code> to iterate over the elements
+                    of <code class="language-python" >my_list</code> along with their respective indices.</p>
+            </div>
+        </div>
+        <div class="question-container">
+            <div class="question">What is a virtual environment in Python?</div>
+            <div class="answer">
+                <p>A virtual environment in Python is a self-contained directory that contains a Python interpreter and
+                    can have its own installed packages and dependencies. It allows you to create isolated environments
+                    for different projects, ensuring that each project has its own set of dependencies without
+                    interfering with the global Python environment.</p>
+            </div>
+        </div>
+
+        <div class="question-container">
+            <div class="question">Why is a virtual environment used in Python?</div>
+            <div class="answer">
+                <p>Virtual environments are used in Python to:</p>
+                <ul>
+                    <li>Isolate project dependencies: Ensure that each project has its own isolated set of libraries and
+                        dependencies, preventing conflicts between different projects.</li>
+                    <li>Manage package versions: Easily manage and switch between different versions of Python packages
+                        for different projects.</li>
+                    <li>Ensure reproducibility: Replicate the exact environment used during development, making it
+                        easier to share and reproduce code across different systems.</li>
+                </ul>
+            </div>
+        </div>
+        <div class="question-container">
+            <div class="question">What is slicing notation in Python?</div>
+            <div class="answer">
+                <p>Slicing notation in Python is a way to extract a portion of a list, tuple, or string. The syntax <code class="language-python" >num[0:3]</code> represents list slicing, indicating that a new list should be created containing elements from the original list <code class="language-python" >num</code>, starting from index 0 (inclusive) up to, but not including, index 3 (exclusive).</p>
+                <pre>
+                <code class="language-python" >
+num = [10, 20, 30, 40, 50]
+result = num[0:3]
+print(result)  # Output: [10, 20, 30]
+                </code>
+            </pre>
+                <p>In the example, the slicing notation <code class="language-python" >num[0:3]</code> selects the elements at index 0, 1, and 2 from the original list <code class="language-python" >num</code>, creating a new list <code class="language-python" >[10, 20, 30]</code>.</p>
+            </div>
+        </div>
+        
+
+        <div class="question-container">
+            <div class="question">What is Polymorphism in Python?</div>
+            <div class="answer">
+                <p><b>Polymorphism</b> is a fundamental concept in object-oriented programming (OOP) that allows objects of different types to be treated as objects of a common type. This provides a way to create more flexible and modular code.</p>
+                <p>In Python, polymorphism is achieved through <b>Method Overloading</b>, <b>Operator Overloading:</b></p>
+        
+
+            </div>
+        </div>
+        
+        <div class="question-container">
+            <div class="question">What is Operator Overloading in Python?</div>
+            <div class="answer">
+                <p>Operator overloading in Python allows you to define special methods in your class to change the behavior of standard operators. For example, you can overload the <code class="language-python" >__add__</code> method to customize the behavior of the + operator.</p>
+                <pre>
+                <code class="language-python" >
+class Point:
+    def __init__(self, x, y):
+        self.x = x
+        self.y = y
+
+    def __add__(self, other):
+        return Point(self.x + other.x, self.y + other.y)
+
+p1 = Point(1, 2)
+p2 = Point(3, 4)
+result = p1 + p2
+print(result.x, result.y)  # Output: 4 6
+                </code>
+            </pre>
+                <p>In the example, the <code class="language-python" >__add__</code> method is defined in the <code class="language-python" >Point</code> class to customize the addition of two <code class="language-python" >Point</code> objects. This allows you to use the + operator directly with instances of the <code class="language-python" >Point</code> class.</p>
+            </div>
+        </div>
+        <div class="question-container">
+            <div class="question">How is Method Overloading achieved in Python?</div>
+            <div class="answer">
+                <p>Python does not support traditional method overloading like some other languages (e.g., Java). However, a form of method overloading can be achieved using default arguments and variable-length argument lists.</p>
+                <pre>
+                <code class="language-python" >
+class Example:
+    def add(self, a, b=None, c=None):
+        if b is not None and c is not None:
+            return a + b + c
+        elif b is not None:
+            return a + b
+        else:
+            return a
+
+obj = Example()
+print(obj.add(1))        # Output: 1
+print(obj.add(1, 2))     # Output: 3
+print(obj.add(1, 2, 3))  # Output: 6
+                </code>
+            </pre>
+                <p>In the example, the <code class="language-python" >add</code> method in the <code class="language-python" >Example</code> class has default arguments and checks for the presence of these arguments to determine the appropriate behavior. This allows for flexibility when calling the method with different numbers of arguments.</p>
+            </div>
+        </div>
+        <div class="question-container">
+            <div class="question">What is Inheritance in Python?</div>
+            <div class="answer">
+                <p><b>Inheritance</b> in Python is a mechanism that allows a class (called the child or derived class) to inherit the attributes and methods of another class (called the parent or base class). This promotes code reuse and enables the child class to extend or override the functionality of the parent class.</p>
+            </div>
+        </div>
+        
+        <div class="question-container">
+            <div class="question">What are the types of Inheritance in Python?</div>
+            <div class="answer">
+                <p>There are several types of inheritance in Python:</p>
+                <ul>
+                    <li><b>Single Inheritance:</b> A class inherits from only one parent class.</li>
+                    <li><b>Multi-level Inheritance:</b> A class inherits from another class, and then a new class inherits from this derived class.</li>
+                    <li><b>Multiple Inheritance:</b> A class inherits from more than one parent class.</li>
+                </ul>
+                <p>These types of inheritance provide flexibility in designing and organizing classes in Python.</p>
+            </div>
+        </div>
+        <div class="question-container">
+            <div class="question">Abstract Classes in Python</div>
+            <div class="answer">
+                <p>An abstract class in Python serves as a blueprint for other classes, defining a set of methods that must be implemented by any child classes derived from the abstract class. Abstract classes can have abstract methods, which are methods that have a declaration but no implementation.</p>
+        
+               <pre><code class="language-python">
+from abc import ABC, abstractmethod
+
+class Polygon(ABC):
+
+    @abstractmethod
+    def noofsides(self):
+        pass
+
+class Triangle(Polygon):
+
+    # overriding abstract method
+    def noofsides(self):
+        print("I have 3 sides")
+
+class Pentagon(Polygon):
+
+    # overriding abstract method
+    def noofsides(self):
+        print("I have 5 sides")
+
+# Driver code
+R = Triangle()
+R.noofsides()
+
+R = Pentagon()
+R.noofsides()
+
+            </code></pre>
+                <p>In this example, <code>Polygon</code> is an abstract class with an abstract method <code>noofsides</code>. The child classes <code>Triangle</code> and <code>Pentagon</code> inherit from <code>Polygon</code> and provide implementations for the abstract method.</p>
+            </div>
+        </div>
+                
+    </div>
+
+    <!-- Bootstrap JS and other scripts if needed -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/components/prism-python.min.js"></script>
+
+    <script src="main.js?x=3"></script>
+</body>
+
+</html>

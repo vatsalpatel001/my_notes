@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/themes/prism.min.css">
+    <title>Python FAQ</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+    <div class="container-fluid">
+        <div class="form-group">
+            <input type="text" id="searchInput" class="form-control" placeholder="Search...">
+        </div>
+
+
+        <div class="question-container">
+            <div class="question">What are Constraints in SQL?</div>
+            <div class="answer">
+                <p><b>Constraints in SQL are rules defined for the data columns in a table.</b> They are used to limit
+                    the type of data that can be inserted or updated in a table. Common types of constraints include:
+                </p>
+                <ul>
+                    <li>NOT NULL: Ensures that a column cannot have a NULL value.</li>
+                    <li>UNIQUE: Ensures that all values in a column are different.</li>
+                    <li>PRIMARY KEY: A combination of NOT NULL and UNIQUE. Uniquely identifies each record in a table.
+                    </li>
+                    <li>FOREIGN KEY: Ensures referential integrity between two tables.</li>
+                    <li>CHECK: Ensures that all values in a column satisfy certain conditions.</li>
+                    <li>DEFAULT: Provides a default value for a column when none is specified.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="question-container">
+            <div class="question">What is a Primary Key?</div>
+            <div class="answer">
+                <p><b>A primary key is a constraint in SQL that uniquely identifies each record in a table.</b> It must
+                    contain unique values, and no NULL values are allowed. A primary key is implemented using the
+                    PRIMARY KEY constraint. Typically, it is applied to one or more columns of a table to ensure the
+                    uniqueness of each record.</p>
+            </div>
+        </div>
+
+        <div class="question-container">
+            <div class="question">What is a UNIQUE constraint?</div>
+            <div class="answer">
+                <p><b>The UNIQUE constraint in SQL ensures that all values in a column are distinct (unique).</b> It is
+                    similar to the PRIMARY KEY constraint but allows for NULL values in the column (excluding the unique
+                    constraint).</p>
+            </div>
+        </div>
+
+        <div class="question-container">
+            <div class="question">What is a Foreign Key?</div>
+            <div class="answer">
+                <p><b>A Foreign Key is a column or a set of columns in a table that refers to the primary key of another
+                        table.</b> It establishes a link between the two tables, creating a relationship. The FOREIGN
+                    KEY constraint is used to enforce referential integrity between the two tables.</p>
+            </div>
+        </div>
+
+        <div class="question-container">
+            <div class="question">What is a Join? List its different types.</div>
+            <div class="answer">
+                <p>In SQL, a join is used to <b>combine rows from two or more tables based on a related column between
+                        them.</b> </p>
+                <ul>
+                    <li><strong>INNER JOIN:</strong> Returns only the rows where there is a match in both tables.
+                        <pre><code class="sql">SELECT employees.employee_id, employees.employee_name, departments.department_name
+                            FROM employees
+                            INNER JOIN departments ON employees.department_id = departments.department_id;</code></pre>
+                    </li>
+                    <li><strong>LEFT (OUTER) JOIN:</strong> Returns all rows from the left table and matched rows from
+                        the right table.
+                        <pre><code class="sql">SELECT customers.customer_id, orders.order_id, orders.order_date
+                            FROM customers
+                            LEFT JOIN orders ON customers.customer_id = orders.customer_id;</code></pre>
+                    </li>
+                    <li><strong>RIGHT (OUTER) JOIN:</strong> Returns all rows from the right table and matched rows from
+                        the left table.
+                        <pre><code class="sql">SELECT orders.order_id, orders.order_date, customers.customer_name
+                            FROM orders
+                            RIGHT JOIN customers ON orders.customer_id = customers.customer_id;</code></pre>
+
+                    </li>
+                    <li><strong>FULL (OUTER) JOIN:</strong> Returns all rows when there is a match in either table.
+                        <pre><code class="sql">SELECT employees.employee_id, employees.employee_name, departments.department_name
+                            FROM employees
+                            FULL JOIN departments ON employees.department_id = departments.department_id;</code></pre>
+                    </li>
+                    <li><strong>CROSS JOIN:</strong> Returns the Cartesian product of the two tables (all possible
+                        combinations).
+                        <pre><code class="sql">SELECT employees.employee_name, departments.department_name
+                            FROM employees
+                            CROSS JOIN departments;</code></pre>
+                    </li>
+                    <li><strong>SELF JOIN:</strong> Joins a table with itself.
+                        <pre><code class="sql">SELECT e1.employee_name AS employee1, e2.employee_name AS employee2
+                            FROM employees e1
+                            JOIN employees e2 ON e1.manager_id = e2.employee_id;</code></pre>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="question-container">
+            <div class="question">What is a Self-Join?</div>
+            <div class="answer">
+                <p>A Self-Join is a specific case of a SQL join where a table is joined with itself. It is used when a
+                    table has a hierarchical structure or when it contains a foreign key that references its own primary
+                    key. In a self-join, you need to use table aliases to differentiate between the two instances of the
+                    same table.</p>
+            </div>
+        </div>
+
+        <div class="question-container">
+            <div class="question">What is a Cross-Join?</div>
+            <div class="answer">
+                <p>A Cross-Join, also known as a Cartesian Join, returns the Cartesian product of the two tables
+                    involved. In other words, it combines each row from the first table with every row from the second
+                    table, resulting in a large result set. Cross-Joins are not commonly used in practice due to their
+                    potential to generate a vast number of rows.</p>
+            </div>
+        </div>
+
+        <div class="question-container">
+            <div class="question">What is an Index? Explain its different types.</div>
+            <div class="answer">
+                <p><b>An Index is a database object that improves the speed of data retrieval operations on a database table.</b> It is created on one or more columns of a table. Different types of indexes include:</p>
+                <ul>
+                    <li>Clustered Index: Determines the physical order of data rows in a table.</li>
+                    <li>Non-Clustered Index: Does not alter the physical order of the table, and it uses a separate
+                        structure to store index data.</li>
+                    <li>Unique Index: Ensures that the indexed columns contain unique values.</li>
+                    <li>Composite Index: Created on multiple columns to improve query performance for conditions
+                        involving those columns.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="question-container">
+            <div class="question">What is the difference between Clustered and Non-clustered index?</div>
+            <div class="answer">
+                <p>The main difference between a Clustered and Non-clustered index lies in the way they store and
+                    retrieve data:</p>
+                <ul>
+                    <li>Clustered Index: Determines the physical order of data rows in a table. The table can have only
+                        one clustered index, and the data rows are sorted based on the key values. It directly affects
+                        the order of the data on disk.</li>
+                    <li>Non-Clustered Index: Does not alter the physical order of the table. It uses a separate
+                        structure to store index data, and the data rows are stored in a different order. A table can
+                        have multiple non-clustered indexes.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="question-container">
+            <div class="question">What is Data Integrity?</div>
+            <div class="answer">
+                <p>Data Integrity in a database ensures the accuracy, consistency, and reliability of data. It involves
+                    the application of rules and constraints to maintain the quality of data, preventing issues such as
+                    duplicate records, invalid entries, and data inconsistencies. Data integrity is enforced through
+                    mechanisms like constraints, relationships, and validation rules.</p>
+            </div>
+        </div>
+
+        <div class="question-container">
+            <div class="question">What is a Query?</div>
+            <div class="answer">
+                <p>A Query in the context of databases refers to a request for information from a database. <b>It is a
+                    command or set of commands used to retrieve, insert, update, or delete data in a database.</b> SQL
+                    (Structured Query Language) is a standard language for querying relational databases, and it
+                    provides various statements for performing different operations on databases.</p>
+            </div>
+        </div>
+
+        <div class="question-container">
+            <div class="question">What is a Subquery? What are its types?</div>
+            <div class="answer">
+                <p><b>A Subquery, also known as a nested query or inner query, is a query embedded within another query. </b>It
+                    is used to retrieve data that will be used by the main query. Types of subqueries include:</p>
+                <ul>
+                    <li>Scalar Subquery: A subquery that returns a single value.</li>
+                    <li>Row Subquery: A subquery that returns one or more rows of data.</li>
+                    <li>Table Subquery: A subquery that returns a table.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="question-container">
+            <div class="question">What is the SELECT statement?</div>
+            <div class="answer">
+                <p>The SELECT statement in SQL is used to query the database and retrieve data from one or more tables.
+                    It allows you to specify the columns you want to retrieve, the tables you want to query, and
+                    conditions for selecting specific rows. The basic syntax of the SELECT statement is:</p>
+                <pre><code class="sql">SELECT column1, column2, ...
+        FROM table_name
+        WHERE condition;</code></pre>
+            </div>
+        </div>
+
+        <div class="question-container">
+            <div class="question">What are some common clauses used with SELECT query in SQL?</div>
+            <div class="answer">
+                <p>Common clauses used with the SELECT query in SQL include:</p>
+                <ul>
+                    <li>WHERE: Specifies conditions for filtering rows.</li>
+                    <li>ORDER BY: Sorts the result set based on one or more columns.</li>
+                    <li>GROUP BY: Groups rows that have the same values in specified columns.</li>
+                    <li>HAVING: Applies conditions to grouped rows after the GROUP BY clause.</li>
+                    <li>JOIN: Combines rows from two or more tables based on a related column.</li>
+                    <li>LIMIT: Limits the number of rows returned by the query.</li>
+                    <li>OFFSET: Skips a specified number of rows before starting to return rows.</li>
+                </ul>
+            </div>
+        </div>
+
+
+        <div class="question-container">
+            <div class="question">What are UNION, MINUS, and INTERSECT commands?</div>
+            <div class="answer">
+                <p>In SQL, UNION, MINUS, and INTERSECT are set operations:</p>
+                <ul>
+                    <li><strong>UNION:</strong> Combines the result sets of two or more SELECT statements, eliminating
+                        duplicate rows.</li>
+                    <li><strong>MINUS (or EXCEPT):</strong> Returns the rows that are present in the first result set
+                        but not in the second result set, eliminating duplicates.</li>
+                    <li><strong>INTERSECT:</strong> Returns the common rows between two result sets, eliminating
+                        duplicates.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="question-container">
+            <div class="question">What is a Cursor? How to use a Cursor?</div>
+            <div class="answer">
+                <p>In SQL, a cursor is a database object used to traverse the result set of a query. Cursors provide a
+                    way to iterate over the rows of a result set one at a time.</p>
+                <p>Usage of a cursor involves the following steps:</p>
+                <ol>
+                    <li>Declare a cursor.</li>
+                    <li>Open the cursor.</li>
+                    <li>Fetch rows from the cursor one by one or in a bulk.</li>
+                    <li>Close the cursor when done.</li>
+                </ol>
+                <p>Example:</p>
+                <pre><code class="sql">DECLARE cursor_name CURSOR FOR
+        SELECT column1, column2
+        FROM your_table;
+        
+        OPEN cursor_name;
+        
+        FETCH NEXT FROM cursor_name;
+        
+        -- Process the fetched row(s)
+        
+        CLOSE cursor_name;</code></pre>
+            </div>
+        </div>
+
+        <div class="question-container">
+            <div class="question">What are Entities and Relationships?</div>
+            <div class="answer">
+                <p>In the context of databases, entities are objects or concepts represented by tables. Relationships
+                    define associations between these entities.</p>
+            </div>
+        </div>
+
+        <div class="question-container">
+            <div class="question">List the different types of relationships in SQL.</div>
+            <div class="answer">
+                <p>Common types of relationships in SQL include:</p>
+                <ul>
+                    <li><strong>One-to-One (1:1):</strong> Each row in the related table is related to only one row in
+                        the main table.</li>
+                    <li><strong>One-to-Many (1:N):</strong> Each row in the main table can be related to multiple rows
+                        in the related table.</li>
+                    <li><strong>Many-to-One (M:1):</strong> Multiple rows in the main table can be related to one row in
+                        the related table.</li>
+                    <li><strong>Many-to-Many (M:N):</strong> Multiple rows in both tables can be related to each other.
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="question-container">
+            <div class="question">What is an Alias in SQL?</div>
+            <div class="answer">
+                <p>In SQL, an alias is a temporary name assigned to a table or column for the purpose of a query. It is
+                    used to make the column or table names more readable or to provide a different name.</p>
+                <p>Example:</p>
+                <pre><code class="sql">SELECT column1 AS alias_name
+        FROM your_table;</code></pre>
+            </div>
+        </div>
+
+        <div class="question-container">
+            <div class="question">What is a View?</div>
+            <div class="answer">
+                <p>In SQL, a view is a virtual table based on the result of a SELECT query. It allows users to query and
+                    manipulate data as if it were a regular table, but the data is not stored directly in the view.</p>
+            </div>
+        </div>
+
+        <div class="question-container">
+            <div class="question">What is Normalization?</div>
+            <div class="answer">
+                <p>Normalization is the process of organizing data in a database to reduce redundancy and improve data
+                    integrity. It involves breaking down large tables into smaller ones and defining relationships
+                    between them.</p>
+            </div>
+        </div>
+
+        <div class="question-container">
+            <div class="question">What is Denormalization?</div>
+            <div class="answer">
+                <p>Denormalization is the process of intentionally introducing redundancy into a database by combining
+                    tables. This is done to improve query performance at the cost of some redundancy and potential
+                    update anomalies.</p>
+            </div>
+        </div>
+
+        <div class="question-container">
+            <div class="question">What are UNION, MINUS, and INTERSECT commands?</div>
+            <div class="answer">
+                <p>In SQL, UNION, MINUS, and INTERSECT are set operations:</p>
+                <ul>
+                    <li><strong>UNION:</strong> Combines the result sets of two or more SELECT statements, eliminating duplicate rows.</li>
+                    <li><strong>MINUS (or EXCEPT):</strong> Returns the rows that are present in the first result set but not in the second result set, eliminating duplicates.</li>
+                    <li><strong>INTERSECT:</strong> Returns the common rows between two result sets, eliminating duplicates.</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="question-container">
+            <div class="question">What is a Cursor? How to use a Cursor?</div>
+            <div class="answer">
+                <p>In SQL, a cursor is a database object used to traverse the result set of a query. Cursors provide a way to iterate over the rows of a result set one at a time.</p>
+                <p>Usage of a cursor involves the following steps:</p>
+                <ol>
+                    <li>Declare a cursor.</li>
+                    <li>Open the cursor.</li>
+                    <li>Fetch rows from the cursor one by one or in a bulk.</li>
+                    <li>Close the cursor when done.</li>
+                </ol>
+                <p>Example:</p>
+                <pre><code class="sql">DECLARE cursor_name CURSOR FOR
+        SELECT column1, column2
+        FROM your_table;
+        
+        OPEN cursor_name;
+        
+        FETCH NEXT FROM cursor_name;
+        
+        -- Process the fetched row(s)
+        
+        CLOSE cursor_name;</code></pre>
+            </div>
+        </div>
+        
+        <div class="question-container">
+            <div class="question">What are Entities and Relationships?</div>
+            <div class="answer">
+                <p>In the context of databases, entities are objects or concepts represented by tables. Relationships define associations between these entities.</p>
+            </div>
+        </div>
+        
+        <div class="question-container">
+            <div class="question">List the different types of relationships in SQL.</div>
+            <div class="answer">
+                <p>Common types of relationships in SQL include:</p>
+                <ul>
+                    <li><strong>One-to-One (1:1):</strong> Each row in the related table is related to only one row in the main table.</li>
+                    <li><strong>One-to-Many (1:N):</strong> Each row in the main table can be related to multiple rows in the related table.</li>
+                    <li><strong>Many-to-One (M:1):</strong> Multiple rows in the main table can be related to one row in the related table.</li>
+                    <li><strong>Many-to-Many (M:N):</strong> Multiple rows in both tables can be related to each other.</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="question-container">
+            <div class="question">What is an Alias in SQL?</div>
+            <div class="answer">
+                <p>In SQL, an alias is a temporary name assigned to a table or column for the purpose of a query. It is used to make the column or table names more readable or to provide a different name.</p>
+                <p>Example:</p>
+                <pre><code class="sql">SELECT column1 AS alias_name
+        FROM your_table;</code></pre>
+            </div>
+        </div>
+        
+        <div class="question-container">
+            <div class="question">What is a View?</div>
+            <div class="answer">
+                <p>In SQL, a view is a virtual table based on the result of a SELECT query. It allows users to query and manipulate data as if it were a regular table, but the data is not stored directly in the view.</p>
+            </div>
+        </div>
+        
+        <div class="question-container">
+            <div class="question">What is Normalization?</div>
+            <div class="answer">
+                <p>Normalization is the process of organizing data in a database to reduce redundancy and improve data integrity. It involves breaking down large tables into smaller ones and defining relationships between them.</p>
+            </div>
+        </div>
+        
+        <div class="question-container">
+            <div class="question">What is Denormalization?</div>
+            <div class="answer">
+                <p>Denormalization is the process of intentionally introducing redundancy into a database by combining tables. This is done to improve query performance at the cost of some redundancy and potential update anomalies.</p>
+            </div>
+        </div>
+        <div class="question-container">
+            <div class="question">What is OLTP?</div>
+            <div class="answer">
+                <p>OLTP (Online Transaction Processing) is a type of data processing that manages transaction-oriented applications. It is characterized by a large number of short online transactions, such as INSERT, UPDATE, and DELETE operations. OLTP databases are designed for real-time data processing and are optimized for quick and accurate transaction processing.</p>
+            </div>
+        </div>
+        
+        <div class="question-container">
+            <div class="question">What are the differences between OLTP and OLAP?</div>
+            <div class="answer">
+                <p>OLAP (Online Analytical Processing) is different from OLTP in terms of:</p>
+                <ul>
+                    <li><strong>Purpose:</strong> OLTP is used for transactional processing, while OLAP is used for analytical processing and reporting.</li>
+                    <li><strong>Database Design:</strong> OLTP databases are normalized, and OLAP databases are often denormalized for faster query performance.</li>
+                    <li><strong>Operations:</strong> OLTP involves simple CRUD operations, while OLAP involves complex queries and aggregations.</li>
+                    <li><strong>Data Freshness:</strong> OLTP requires real-time data, while OLAP deals with historical data and is not concerned with real-time updates.</li>
+                    <li><strong>Concurrency:</strong> OLTP systems handle a high level of concurrent transactions, while OLAP systems are typically read-intensive with fewer concurrent updates.</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="question-container">
+            <div class="question">What is Collation? What are the different types of Collation Sensitivity?</div>
+            <div class="answer">
+                <p>Collation refers to the set of rules that dictate how characters are sorted and compared in a database. Different types of collation sensitivity include:</p>
+                <ul>
+                    <li><strong>Case Sensitivity:</strong> Determines whether uppercase and lowercase letters are treated as distinct. Examples include case-sensitive and case-insensitive collations.</li>
+                    <li><strong>Accent Sensitivity:</strong> Determines whether accented characters are treated as distinct from their non-accented counterparts.</li>
+                    <li><strong>Kana Sensitivity:</strong> Relevant in Japanese collations and determines whether Kana characters are treated as distinct from their Romanized counterparts.</li>
+                    <li><strong>Width Sensitivity:</strong> Determines whether full-width and half-width characters are treated as distinct.</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="question-container">
+            <div class="question">What is a Stored Procedure?</div>
+            <div class="answer">
+                <p>A stored procedure is a precompiled collection of one or more SQL statements that can be executed as a single unit. Stored procedures are typically stored in a database and can be called by applications or other stored procedures. They help improve performance, code modularity, and security by encapsulating complex logic and business rules.</p>
+            </div>
+        </div>
+        
+        <div class="question-container">
+            <div class="question">What is a Recursive Stored Procedure?</div>
+            <div class="answer">
+                <p>A recursive stored procedure is a stored procedure that calls itself. It is used when a task can be broken down into subtasks that are similar to the original task. Recursive stored procedures are often used in hierarchical data structures such as trees and graphs.</p>
+            </div>
+        </div>
+        
+        <div class="question-container">
+            <div class="question">How to create empty tables with the same structure as another table?</div>
+            <div class="answer">
+                <p>To create an empty table with the same structure as another table in SQL, you can use the following syntax:</p>
+                <code>CREATE TABLE new_table AS SELECT * FROM existing_table WHERE 1=0;</code>
+                <p>This creates a new table called <code>new_table</code> with the same structure as <code>existing_table</code> but without copying any data.</p>
+            </div>
+        </div>
+        
+        <div class="question-container">
+            <div class="question">What is Pattern Matching in SQL?</div>
+            <div class="answer">
+                <p>Pattern matching in SQL involves searching for a specified pattern in a column. Commonly used patterns include:</p>
+                <ul>
+                    <li><strong>%:</strong> Represents zero or more characters.</li>
+                    <li><strong>_:</strong> Represents a single character.</li>
+                    <li><strong>[character_list]:</strong> Represents any single character in the list.</li>
+                    <li><strong>[^character_list]:</strong> Represents any single character not in the list.</li>
+                </ul>
+                <p>Pattern matching is often used in conjunction with the <code>LIKE</code> operator in SQL queries.</p>
+            </div>
+        </div>
+                
+
+    </div>
+
+
+    <!-- Bootstrap JS and other scripts if needed -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/components/prism-python.min.js"></script>
+
+    <script src="main.js"></script>
+</body>
+
+</html>
